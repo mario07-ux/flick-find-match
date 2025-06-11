@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Search, Film, Star, Calendar, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,7 @@ const Index = () => {
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
-  // Sample movie data for demonstration
+  // Sample movie data for demonstration including Bollywood movies
   const sampleMovies: Movie[] = [
     {
       id: 1,
@@ -114,9 +113,82 @@ const Index = () => {
       genre_ids: [80, 18],
       genres: [{ id: 80, name: "Crime" }, { id: 18, name: "Drama" }],
       runtime: 154
+    },
+    {
+      id: 7,
+      title: "3 Idiots",
+      overview: "Two friends search for their long-lost companion while remembering their college days.",
+      poster_path: "/66A9MqXOyVFCssoloscw4Lao4Dh.jpg",
+      backdrop_path: "/mMtUybQ6hL24FXo0F3Z4j2KG7kZ.jpg",
+      release_date: "2009-12-25",
+      vote_average: 8.4,
+      genre_ids: [35, 18],
+      genres: [{ id: 35, name: "Comedy" }, { id: 18, name: "Drama" }],
+      runtime: 170
+    },
+    {
+      id: 8,
+      title: "Dangal",
+      overview: "Former wrestler Mahavir Singh Phogat trains his daughters to become world-class wrestlers.",
+      poster_path: "/lInS8LPx0qfxlyTpHqyq6sJQp3v.jpg",
+      backdrop_path: "/ovY4akNigq7J8J0q1eFJwrWe01E.jpg",
+      release_date: "2016-12-23",
+      vote_average: 8.3,
+      genre_ids: [18, 10751],
+      genres: [{ id: 18, name: "Drama" }, { id: 10751, name: "Family" }],
+      runtime: 161
+    },
+    {
+      id: 9,
+      title: "Zindagi Na Milegi Dobara",
+      overview: "Three friends on a bachelor trip across Spain discover themselves and their relationships.",
+      poster_path: "/fC7Gk7ynxgJnwMdLJnXVKhDHH8k.jpg",
+      backdrop_path: "/8Z8dptJEypuLoOQro1WugD855YE.jpg",
+      release_date: "2011-07-15",
+      vote_average: 8.1,
+      genre_ids: [18, 35, 12],
+      genres: [{ id: 18, name: "Drama" }, { id: 35, name: "Comedy" }, { id: 12, name: "Adventure" }],
+      runtime: 155
+    },
+    {
+      id: 10,
+      title: "Lagaan",
+      overview: "Villagers accept a challenge from British officers to play cricket and avoid paying taxes.",
+      poster_path: "/7JjZOrsYv5iDHAy5LCk3k4ixRMO.jpg",
+      backdrop_path: "/w5S9ZOGhwOZjQ56P6N8QfzWfA2g.jpg",
+      release_date: "2001-06-15",
+      vote_average: 8.1,
+      genre_ids: [18, 36, 10752],
+      genres: [{ id: 18, name: "Drama" }, { id: 36, name: "History" }, { id: 10752, name: "War" }],
+      runtime: 224
+    },
+    {
+      id: 11,
+      title: "Queen",
+      overview: "A young woman goes on her honeymoon alone and discovers herself in the process.",
+      poster_path: "/p5ozvmdgsmbWe0H8Xk7Rc8SCwAB.jpg",
+      backdrop_path: "/iNh3BivHyg5sQRPP1KOkzguEX0H.jpg",
+      release_date: "2013-03-07",
+      vote_average: 8.2,
+      genre_ids: [35, 18],
+      genres: [{ id: 35, name: "Comedy" }, { id: 18, name: "Drama" }],
+      runtime: 146
+    },
+    {
+      id: 12,
+      title: "Sholay",
+      overview: "Two criminals are hired by a retired police officer to capture a ruthless dacoit.",
+      poster_path: "/pW6v9dUQOYYwkllKKE7PGhMGfVU.jpg",
+      backdrop_path: "/l4vxQU7V4Dw9XN1iGzQfYnfK7Kl.jpg",
+      release_date: "1975-08-15",
+      vote_average: 8.6,
+      genre_ids: [28, 18, 37],
+      genres: [{ id: 28, name: "Action" }, { id: 18, name: "Drama" }, { id: 37, name: "Western" }],
+      runtime: 204
     }
   ];
 
+  // Sample genre data for demonstration
   const sampleGenres: Genre[] = [
     { id: 28, name: "Action" },
     { id: 12, name: "Adventure" },
