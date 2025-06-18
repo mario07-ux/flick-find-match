@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Search, Film, Star, Calendar, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import MovieCard from "@/components/MovieCard";
 import RecommendationEngine from "@/components/RecommendationEngine";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useToast } from "@/hooks/use-toast";
 
 interface Movie {
@@ -268,14 +270,19 @@ const Index = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-950 dark:via-purple-950 dark:to-slate-950 flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-400"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-950 dark:via-purple-950 dark:to-slate-950">
+      {/* Theme Toggle */}
+      <div className="absolute top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
       {/* Hero Section */}
       {featuredMovie && (
         <div className="relative h-[70vh] overflow-hidden">
@@ -315,13 +322,13 @@ const Index = () => {
 
       {/* Search and Filters */}
       <div className="container mx-auto px-4 py-8">
-        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 mb-8">
+        <div className="bg-black/20 dark:bg-black/40 backdrop-blur-sm rounded-xl p-6 mb-8">
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <Input
                 placeholder="Search for movies..."
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder-gray-400"
+                className="pl-10 bg-white/10 dark:bg-white/5 border-white/20 dark:border-white/10 text-white placeholder-gray-400"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -341,7 +348,7 @@ const Index = () => {
                   className={`${
                     selectedGenres.includes(genre.id)
                       ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-                      : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                      : "bg-white/10 dark:bg-white/5 border-white/20 dark:border-white/10 text-white hover:bg-white/20 dark:hover:bg-white/10"
                   }`}
                 >
                   {genre.name}
